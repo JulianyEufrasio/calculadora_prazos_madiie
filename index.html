@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Prazo de Estágio — Madiie</title>
+  <link rel="stylesheet" href="/assets/calculadora.css">
+</head>
+<body>
+
+  <header class="header">
+    <img src="/assets/logo_madiie.jpg" alt="MADIIÊ SOLUÇÕES ACADÊMICAS" class="logo">
+    <div class="header-text">
+      <span class="header-title">MADIIÊ SOLUÇÕES ACADÊMICAS</span>
+      <span class="header-sub">Calculadora de Prazo de Estágio</span>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="card">
+      <p class="sec-label">dados do estágio</p>
+      <div class="grid2">
+        <div class="field">
+          <label for="venda">Data da venda</label>
+          <input type="date" id="venda">
+        </div>
+        <div class="field">
+          <label for="fim">Prazo de finalização</label>
+          <input type="date" id="fim">
+        </div>
+        <div class="field">
+          <label for="horas">Carga horária total (horas)</label>
+          <input type="number" id="horas" value="" min="1" placeholder="Ex: 200">
+        </div>
+        <div class="field">
+          <label for="horasdia">Horas de estágio por dia</label>
+          <input type="number" id="horasdia" value="" min="1" max="6" step="0.5" placeholder="Ex: 6">
+        </div>
+      </div>
+      <button class="btn" onclick="calcular()">Calcular prazo</button>
+    </div>
+
+    <div class="result" id="res">
+      <div class="badge" id="badge"></div>
+      <p class="res-title" id="rtitle"></p>
+      <p class="res-sub" id="rsub"></p>
+      <div class="stats" id="stats"></div>
+      <hr class="hr">
+      <div class="tl" id="tl"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    © Juliany Eufrásio, 2026
+  </footer>
+
+  <script src="/assets/calculadora.js"></script>
+</body>
+</html>
