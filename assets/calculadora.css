@@ -1,0 +1,314 @@
+/* ============================================================
+   Calculadora de Prazo de Estágio — Madiie Soluções Acadêmicas
+   calculadora.css
+   ============================================================ */
+
+/* Paleta Madiie */
+:root {
+  --vinho:        #6B1D2A;
+  --vinho-escuro: #4A1019;
+  --vinho-claro:  #8C2535;
+  --vinho-bg:     #F9F0F1;
+  --vinho-leve:   #F0DCE0;
+  --dourado:      #C49A3C;
+  --dourado-claro:#E8C96A;
+  --texto:        #1a1a1a;
+  --texto-muted:  #666;
+  --borda:        rgba(107, 29, 42, 0.2);
+  --bg:           #FAF8F8;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background: var(--vinho);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 8px rgba(74, 16, 25, 0.25);
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--dourado);
+  flex-shrink: 0;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.header-sub {
+  font-size: 12px;
+  color: var(--dourado-claro);
+  letter-spacing: 0.03em;
+}
+
+/* Layout */
+.wrap {
+  max-width: 580px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex: 1;
+  width: 100%;
+}
+
+/* Card formulário */
+.card {
+  background: #fff;
+  border: 0.5px solid var(--borda);
+  border-top: 3px solid var(--vinho);
+  border-radius: 12px;
+  padding: 1.4rem;
+  margin-bottom: 16px;
+}
+
+.sec-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--vinho);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+
+/* Formulário */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.full { grid-column: 1 / -1; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field label {
+  font-size: 13px;
+  color: var(--texto-muted);
+}
+
+.field input {
+  border: 0.5px solid rgba(107, 29, 42, 0.25);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--texto);
+  padding: 9px 11px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.field input:focus {
+  border-color: var(--vinho-claro);
+  box-shadow: 0 0 0 3px rgba(107, 29, 42, 0.1);
+}
+
+/* Botão */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--vinho);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn:hover  { background: var(--vinho-claro); }
+.btn:active { transform: scale(0.99); }
+
+/* Resultado */
+.result {
+  background: #fff;
+  border: 0.5px solid var(--borda);
+  border-radius: 12px;
+  padding: 1.4rem;
+  display: none;
+}
+
+.result.ok      { border-left: 4px solid #0F6E56; }
+.result.atencao { border-left: 4px solid #BA7517; }
+.result.nok     { border-left: 4px solid var(--vinho); }
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
+.badge.ok      { background: #E1F5EE; color: #0F6E56; }
+.badge.atencao { background: #FAEEDA; color: #7A4D08; }
+.badge.nok     { background: var(--vinho-leve); color: var(--vinho-escuro); }
+
+.res-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.result.ok      .res-title { color: #0F6E56; }
+.result.atencao .res-title { color: #7A4D08; }
+.result.nok     .res-title { color: var(--vinho); }
+
+.res-sub {
+  font-size: 13px;
+  color: var(--texto-muted);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.stat {
+  background: var(--vinho-bg);
+  border-radius: 8px;
+  padding: 10px 12px;
+  border: 0.5px solid var(--borda);
+}
+
+.stat .slabel {
+  font-size: 11px;
+  color: var(--vinho-claro);
+  font-weight: 500;
+}
+
+.stat .sval {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--vinho-escuro);
+  margin-top: 2px;
+}
+
+/* Stats coloridos por estado */
+.result.ok .stat {
+  background: #E1F5EE;
+  border-color: #9FE1CB;
+}
+.result.ok .stat .slabel { color: #0F6E56; }
+.result.ok .stat .sval   { color: #085041; }
+
+.result.atencao .stat {
+  background: #FAEEDA;
+  border-color: #FAC775;
+}
+.result.atencao .stat .slabel { color: #BA7517; }
+.result.atencao .stat .sval   { color: #633806; }
+
+/* Divider */
+.hr {
+  border: none;
+  border-top: 0.5px solid var(--borda);
+  margin: 0 0 12px;
+}
+
+/* Timeline */
+.tl { display: flex; flex-direction: column; }
+
+.tl-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 9px 0;
+  border-bottom: 0.5px solid rgba(107, 29, 42, 0.08);
+}
+
+.tl-row:last-child { border-bottom: none; }
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.d-blue  { background: #378ADD; }
+.d-coral { background: var(--vinho-claro); }
+.d-amber { background: var(--dourado); }
+.d-teal  { background: #0F6E56; }
+.d-warn  { background: #BA7517; }
+
+.tl-info .tlabel {
+  font-size: 12px;
+  color: var(--texto-muted);
+}
+
+.tl-info .tdate {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.tl-info .tnote {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 12px;
+  color: var(--vinho-claro);
+  border-top: 0.5px solid var(--borda);
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .grid2 { grid-template-columns: 1fr; }
+  .full  { grid-column: 1; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .header-title { font-size: 14px; }
+}
